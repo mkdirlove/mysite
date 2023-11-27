@@ -1,0 +1,436 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Prediction</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+</head>
+
+<?php
+include 'head.php';
+include 'header.php';
+?>
+
+
+<body>
+  <?php include 'sidebar.php'; ?>
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Prediction</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active">Prediction</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+
+    <div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Season with Highest Production</h5>
+                    <div class="form-group row">
+                        <div class="col-6">
+                            <label for="district">Barangay</label>
+                            <select class="form-select" name="district" id="district">
+                                <option selected disabled hidden value="">Open this select menu</option>
+                                <option value="BAGBAG">Bagbag</option>
+                                <option value="BALIBAGO">Balibago</option>
+                                <option value="BUNGAHAN">Bungahan</option>
+                                <option value="CALACA">Calaca</option>
+                                <option value="CUACO">Cuaco</option>
+                                <option value="GINTONG PAGASA">Gintong Pag-asa</option>
+                                <option value="LAGULUAN">Laguluan</option>
+                                <option value="LUMANG TUBIGAN">Lumang Tubigan</option>
+                                <option value="LUYAHAN">Luyahan</option>
+                                <option value="MALARUHATAN">Malaruhatan</option>
+                                <option value="MATABUNGKAY">Matabungkay</option>
+                                <option value="MOLINO">Molino</option>
+                                <option value="PRENZA">Prenza</option>
+                                <option value="TAN-AG">Tan-ag</option>
+                                    </select>
+                                <br>
+                            </div>
+
+
+                            <div class="col-6">
+                                <label for="croptype">Crop Type</label>
+                                    <select class="form-select" name="croptype" id="croptype">
+                                        <option selected disabled hidden value="">Open this select menu</option>
+                                        <option value="Ampalaya">Ampalaya</option>
+                                        <option value="Cassava">Cassava</option>
+                                        <option value="Kamatis">Kamatis</option>
+                                        <option value="Mais">Mais</option>
+                                        <option value="Palay">Palay</option>
+                                        <option value="Patatas">Patatas</option>
+                                        <option value="Talong">Talong</option>
+                                    </select>
+                                <br>
+                            </div>
+
+
+
+                               <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="feature1">Area</label>
+                                        <input type="number" class="form-control" id="areaSeason">
+                                    </div>
+                                      <br>
+                                </div>
+
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="prediction">Season</label>
+                                        <input type="text" class="form-control" id="predictionS" name="predictionS" readonly disabled>
+                                        <br>
+                                          <div class="d-flex justify-content-end">
+                                            <button type="button" value="Predict" onclick="submitData()" class="btn btn-success"> Suggest </button>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Possible Total Harvest of Crops</h5>
+                    <div class="form-group row">
+                        <div class="col-6">
+                            <label for="croptype">Crop Type</label>
+                            <select class="form-select" name="croptype2" id="croptype2">
+                                <option selected disabled hidden value="">Open this select menu</option>
+                                <option value="Ampalaya">Ampalaya</option>
+                                <option value="Cassava">Cassava</option>
+                                <option value="Kamatis">Kamatis</option>
+                                <option value="Mais">Mais</option>
+                                <option value="Palay">Palay</option>
+                                <option value="Patatas">Patatas</option>
+                                <option value="Talong">Talong</option>
+
+                                    </select>
+                                <br>
+                            </div>
+
+
+                            <div class="col-6">
+                                <label for="landtype">Land Type</label>
+                                    <select class="form-select" name="landtype" id="landtype">
+                                        <option selected disabled hidden value="">Open this select menu</option>
+                                        <option value="Irrigated">Irrigated</option>
+                                        <option value="Rainfed Lowland">Rainfed Lowland</option>
+                                        <option value="Upland">Upland</option>
+
+
+                                    </select>
+                                <br>
+                            </div>
+
+                            <!-- <div class="col-6">
+                                <label for="seedsystem">Seed System</label>
+                                    <select class="form-control" name="seedsystem" id="seedsystem">
+                                        <option selected disabled hidden value="">Open this select menu</option>
+                                        <option value="Formal Seed System">Formal Seed System</option>
+                                        <option value="RInformal Seed System">Informal Seed System</option>
+
+
+                                    </select>
+                                <br>
+                            </div> -->
+
+                             <div class="col-6">
+                                <label for="seedtype">Seed Type</label>
+                                    <select class="form-select" name="seedtype" id="seedtype">
+                                        <option selected disabled hidden value="">Open this select menu</option>
+                                        <option value="Certified Seeds">Certified Seeds</option>
+                                        <option value="Hybrid Seeds">Hybrid Seeds</option>
+                                        <option value="Registered Seeds">Registered Seeds</option>
+
+
+                                    </select>
+                                <br>
+                            </div>
+
+
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="feature8">Area</label>
+                                    <input type="number" class="form-control" id="areaProd">
+                                </div>
+                                <br>
+                            </div>
+
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="prediction">Production</label>
+                                <input type="text" class="form-control" id="predictionP" name="predictionP" readonly disabled>
+                                <br>
+                            </div>
+                        </div>
+                            <div class="d-flex justify-content-end">
+                                    <button type="button" onclick="submitProd()" class="btn btn-success">Suggest</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</main>
+
+
+
+
+
+<?php include 'footer.php'?>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    function submitData() {
+        let feature1 = document.getElementById('district').value;
+        let feature2 = document.getElementById('croptype').value;
+        let feature3 = document.getElementById('areaSeason').value;
+
+        var data = {
+            "District_Name": feature1,
+            "Crop": feature2,
+            "Area_Harvested": feature3,
+        };
+        $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1:5001/Agricrop",
+            data: JSON.stringify(data),
+            dataType: "json",
+            contentType: "application/json",
+            success: function(response) {
+                var prediction = parseFloat(response.prediction).toFixed(2);
+                var seasonText = prediction === "1.00" ? "wet season" : prediction === "0.00" ? "dry season" : "unknown season";
+                $("#predictionS").val(seasonText);
+            }
+        });
+    }
+
+    function submitProd() {
+        let cropType = document.getElementById('croptype2').value;
+
+        if (cropType === "Ampalaya") {
+            submitAmpalaya();
+        } else if (cropType === "Kamatis") {
+            submitKamatis();
+        } else if (cropType === "Cassava") {
+            submitCassava();
+        } else if (cropType === "Mais") {
+            submitMais();
+        } else if (cropType === "Palay") {
+            submitPalay();
+        } else if (cropType === "Talong") {
+            submitTalong();
+        }  else if (cropType === "Patatas") {
+            submitPatatas();
+        }
+        // Add more conditions for other crops as needed
+    }
+
+    function submitAmpalaya() {
+        let feature5 = document.getElementById('landtype').value;
+        let feature7 = document.getElementById('seedtype').value;
+        let feature8 = document.getElementById('areaProd').value;
+
+        var data = {
+            "landType": feature5,
+            "seedType": feature7,
+            "harvestArea": feature8,
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1:5001/PredictCrop",
+            data: JSON.stringify(data),
+            dataType: "json",
+            contentType: "application/json",
+            success: function(response) {
+                ampalayaProd = parseFloat(response.predictionP).toFixed(2);
+                $("#predictionP").val(ampalayaProd);
+            }
+        });
+    }
+
+    function submitKamatis() {
+        let feature5 = document.getElementById('landtype').value;
+        let feature7 = document.getElementById('seedtype').value;
+        let feature8 = document.getElementById('areaProd').value;
+
+        var data = {
+            "landType": feature5,
+            "seedType": feature7,
+            "harvestArea": feature8,
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1:5001/PredictCropKamatis",
+            data: JSON.stringify(data),
+            dataType: "json",
+            contentType: "application/json",
+            success: function(response) {
+                kamatisProd = parseFloat(response.predictionP).toFixed(2);
+                $("#predictionP").val(kamatisProd);
+            }
+        });
+    }
+
+    function submitCassava() {
+        let feature5 = document.getElementById('landtype').value;
+        let feature7 = document.getElementById('seedtype').value;
+        let feature8 = document.getElementById('areaProd').value;
+
+        var data = {
+            "landType": feature5,
+            "seedType": feature7,
+            "harvestArea": feature8,
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1:5001/PredictCropCassava",
+            data: JSON.stringify(data),
+            dataType: "json",
+            contentType: "application/json",
+            success: function(response) {
+                cassavasProd = parseFloat(response.predictionP).toFixed(2);
+                $("#predictionP").val(cassavasProd);
+            }
+        });
+    }
+
+    function submitMais() {
+        let feature5 = document.getElementById('landtype').value;
+        let feature7 = document.getElementById('seedtype').value;
+        let feature8 = document.getElementById('areaProd').value;
+
+        var data = {
+            "landType": feature5,
+            "seedType": feature7,
+            "harvestArea": feature8,
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1:5001/PredictCropMais",
+            data: JSON.stringify(data),
+            dataType: "json",
+            contentType: "application/json",
+            success: function(response) {
+                maisProd = parseFloat(response.predictionP).toFixed(2);
+                $("#predictionP").val(maisProd);
+            }
+        });
+    }
+
+    function submitPalay() {
+        let feature5 = document.getElementById('landtype').value;
+        let feature7 = document.getElementById('seedtype').value;
+        let feature8 = document.getElementById('areaProd').value;
+
+        var data = {
+            "landType": feature5,
+            "seedType": feature7,
+            "harvestArea": feature8,
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1:5001/PredictCropPalay",
+            data: JSON.stringify(data),
+            dataType: "json",
+            contentType: "application/json",
+            success: function(response) {
+                palayProd = parseFloat(response.predictionP).toFixed(2);
+                $("#predictionP").val(palayProd);
+            }
+        });
+    }
+
+    function submitTalong() {
+        let feature5 = document.getElementById('landtype').value;
+        let feature7 = document.getElementById('seedtype').value;
+        let feature8 = document.getElementById('areaProd').value;
+
+        var data = {
+            "landType": feature5,
+            "seedType": feature7,
+            "harvestArea": feature8,
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1:5001/PredictCropTalong",
+            data: JSON.stringify(data),
+            dataType: "json",
+            contentType: "application/json",
+            success: function(response) {
+                talongProd = parseFloat(response.predictionP).toFixed(2);
+                $("#predictionP").val(talongProd);
+            }
+        });
+    }
+
+    function submitPatatas() {
+        let feature5 = document.getElementById('landtype').value;
+        let feature7 = document.getElementById('seedtype').value;
+        let feature8 = document.getElementById('areaProd').value;
+
+        var data = {
+            "landType": feature5,
+            "seedType": feature7,
+            "harvestArea": feature8,
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1:5001/PredictCropPatatas",
+            data: JSON.stringify(data),
+            dataType: "json",
+            contentType: "application/json",
+            success: function(response) {
+                patatasProd = parseFloat(response.predictionP).toFixed(2);
+                $("#predictionP").val(patatasProd);
+            }
+        });
+    }
+
+    function updateCropTypeDropdown() {
+        let selectedCropType = document.getElementById('croptype').value;
+        document.getElementById('croptype2').value = selectedCropType;
+    }
+
+    // Add an event listener to the "Season with Highest Production" croptype dropdown
+    document.getElementById('croptype').addEventListener('change', updateCropTypeDropdown);
+</script>
+
+
+</body>
+
+
+</html>
