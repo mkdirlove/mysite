@@ -1,21 +1,9 @@
 import subprocess
 import sys
+from flask import Flask, request, jsonify, render_template
+import pickle
+import pandas as pd
 
-try:
-    from flask import Flask, request, jsonify, render_template
-except:
-    subprocess.check_call([sys.executable,'-m','pip','install','flask']);
-    from flask import Flask, request, jsonify, render_template
-
-try:
-    import pickle
-except:
-    subprocess.check_call([sys.executable,'-m','pip','install','pickle']);
-
-try:
-    import pandas as pd
-except:
-    subprocess.check_call([sys.executable,'-m','pip','install','pandas']);
 
 # from flask_cors import CORS
 # try:
